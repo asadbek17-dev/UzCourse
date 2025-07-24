@@ -29,6 +29,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost']
 
+AUTH_USER_MODEL = 'User.User'
 
 # Application definition
 
