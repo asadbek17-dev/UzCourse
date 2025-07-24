@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 
 from pathlib import Path
+from secret import MySql_Password, MySql_DB_Name, MySql_Username
 import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -94,9 +95,9 @@ WSGI_APPLICATION = 'UzCourse.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'UzCourse',
-        'USER': 'root',
-        'PASSWORD':'Qweasd123',
+        'NAME': MySql_DB_Name,
+        'USER': MySql_Username,
+        'PASSWORD':MySql_Password,
         'HOST':'localhost',
         'PORT':'3306',
         'OPTIONS': {
