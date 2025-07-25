@@ -27,7 +27,7 @@ class User(AbstractBaseUser):
     username = models.CharField(max_length=150,null=False,blank=False,unique=True)
     email = models.EmailField(unique=True)
     first_name = models.CharField(max_length=150, null=False,blank=False)
-    last_name = models.CharField(max_length=150, null=False,blank=False)
+    last_name = models.CharField(max_length=150, null=False,blank=False,)
     role = models.CharField(max_length=10, choices=ROLES, default='student')
     is_ban = models.BooleanField(default=False)
     joined = models.DateTimeField(auto_now_add=True)
