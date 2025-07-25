@@ -35,3 +35,20 @@ class RegisterSerializer(serializers.ModelSerializer):
         validated_data['role'] = 'student'
             
         return User.objects.create(**validated_data)
+    
+
+class LoginSerializer(serializers.Serializer):
+
+    username = serializers.CharField()
+    password = serializers.CharField()
+
+    def validate(self, attrs):
+        username = attrs.get('username')
+        password = attrs.get('password')
+
+        user = User.objects.filter(username=username, password=password).first()
+
+        if user:
+            attrs['user'] = user
+            return attrs
+        raise serializers.ValidationError('Username yoki parol xato, qaytadan urinib ko`ring')
